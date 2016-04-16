@@ -21,7 +21,11 @@
 # include <libport/export.hh>
 # include <libport/detect-win32.h>
 
+// Inhibits C++11 scoped enums to enable boost to compile
+// See: http://stackoverflow.com/a/17988317/1936474
+# define BOOST_NO_CXX11_SCOPED_ENUMS
 # include <boost/filesystem.hpp>
+# undef BOOST_NO_CXX11_SCOPED_ENUMS
 
 namespace libport
 {
