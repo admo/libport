@@ -27,6 +27,7 @@
 # endif // WITH_BOOST_SERIALIZATION
 
 # include <boost/unordered_set.hpp>
+# include <boost/optional/optional_io.hpp>
 
 # include <libport/export.hh>
 
