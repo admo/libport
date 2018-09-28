@@ -229,11 +229,11 @@
 // }
 
 # if GCC_VERSION_GE(4, 3)
-#  define likely(Exp)   __builtin_expect(!!(Exp), 1)
-#  define unlikely(Exp) __builtin_expect(!!(Exp), 0)
+#  define libport_likely(Exp)   __builtin_expect(!!(Exp), 1)
+#  define libport_unlikely(Exp) __builtin_expect(!!(Exp), 0)
 # else
-#  define likely(Exp)   (Exp)
-#  define unlikely(Exp) (Exp)
+#  define libport_likely(Exp)   (Exp)
+#  define libport_unlikely(Exp) (Exp)
 # endif
 
 

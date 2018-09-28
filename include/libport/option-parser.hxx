@@ -22,7 +22,7 @@ namespace libport
   {
     if (!filled_)
     {
-      aver(def);
+      aver(!!def);
       return def.get();
     }
     return boost::lexical_cast<T>(value_);

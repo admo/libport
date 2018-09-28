@@ -22,8 +22,13 @@ namespace libport
 {
   namespace meta
   {
+#if __cplusplus > 201100
+    using std::remove_const;
+    using std::remove_reference;
+#else
     using std::tr1::remove_const;
     using std::tr1::remove_reference;
+#endif
 
     /// Uniquify T by combining it with a unique id I
     template <typename T, int I>
@@ -126,7 +131,7 @@ namespace libport
     struct Flatten
     {
       typedef typename
-        std::tr1::remove_const< typename std::tr1::remove_reference<T>::type >::type
+        remove_const< typename remove_reference<T>::type >::type
       type;
     };
 

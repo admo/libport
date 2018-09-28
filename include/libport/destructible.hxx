@@ -9,7 +9,7 @@
  */
 
 #ifndef LIBPORT_DESTRUCTIBLE_HXX
-# define LIBORT_DESTRUCTIBLE_HXX
+# define LIBPORT_DESTRUCTIBLE_HXX
 
 # include <libport/debug.hh>
 

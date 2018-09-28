@@ -18,7 +18,6 @@
 #  pragma GCC system_header
 # endif
 #endif
-
 #include <libport/asio.hh>
 #include <libport/system-warning-push.hh>
 #  include <boost/asio.hpp>
@@ -33,6 +32,12 @@
 #include <libport/semaphore.hh>
 #include <libport/thread.hh>
 #include <libport/unistd.h>
+
+#if BOOST_VERSION >= 106800
+# define LIBPORT_BOOST_NATIVE native_handle
+#else
+# define LIBPORT_BOOST_NATIVE native
+#endif
 
 namespace libport
 {
@@ -228,7 +233,7 @@ namespace libport
     native_handle_type
     AcceptorImpl<Acceptor>::getFD() const
     {
-      return base_->native();
+      return base_->LIBPORT_BOOST_NATIVE();
     }
 
     // FIXME: use the delete_ptr in boost::lambda.
@@ -398,7 +403,7 @@ namespace libport
     native_handle_type
     SocketImpl<Stream>::stealFD()
     {
-      size_t fd = base_->lowest_layer().native();
+      size_t fd = base_->lowest_layer().LIBPORT_BOOST_NATIVE();
       fd = dup(fd);
       // Call close, so shutdown wont be called
       base_->lowest_layer().close();
@@ -411,7 +416,7 @@ namespace libport
     SocketImpl<Stream>::getFD() const
     {
       // We need the C-cast here, because underlying type changes with Stream.
-      return (native_handle_type)base_->lowest_layer().native();
+      return (native_handle_type)base_->lowest_layer().LIBPORT_BOOST_NATIVE();
     }
 
 

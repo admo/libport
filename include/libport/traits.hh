@@ -34,7 +34,7 @@ namespace libport
     template <typename T>
     struct IsPOD
     {
-      static const bool res = std::tr1::is_pod<T>::value;
+      static const bool res = LIBPORT_TRAIT_NAMESPACE::is_pod<T>::value;
     };
 
     /*-----.

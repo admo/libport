@@ -106,7 +106,7 @@ namespace libport
 }
 
 #  define enforce(Exp, ...)                                             \
-  libport::enforce_(__FILE__, __LINE__ , likely(Exp), #Exp, ##__VA_ARGS__)
+  libport::enforce_(__FILE__, __LINE__ , libport_likely(Exp), #Exp, ##__VA_ARGS__)
 
 
 /*-------------------------------------------------------------------.
