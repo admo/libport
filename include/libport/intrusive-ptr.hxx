@@ -119,7 +119,7 @@ namespace libport
   intrusive_ptr<T>::cast() const
   {
     U* ptr = dynamic_cast<U*>(pointee_);
-    if (unlikely(!ptr))
+    if (libport_unlikely(!ptr))
       throw std::bad_cast ();
     return ptr;
   }

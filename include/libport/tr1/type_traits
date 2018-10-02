@@ -19,12 +19,18 @@
 
 # include <libport/config.h>
 
-# if defined(LIBPORT_HAVE_TR1_TYPE_TRAITS) || (_MSC_VER >= 1700)
+# if defined(LIBPORT_HAVE_TR1_TYPE_TRAITS) || (__cplusplus >= 201100) || (_MSC_VER >= 1700)
 #  include <type_traits>
 #  define BOOST_TR1_TYPE_TRAITS_HPP_INCLUDED
 # else
 #  include <boost/tr1/type_traits.hpp>
 # endif // !LIBPORT_HAVE_TR1_TYPE_TRAITS
+
+#if (__cplusplus >= 201100)
+# define LIBPORT_TRAIT_NAMESPACE std
+#else
+# define LIBPORT_TRAIT_NAMESPACE std::tr1
+#endif
 
 #endif // !LIBPORT_TR1_TYPE_TRAITS
 

@@ -305,7 +305,7 @@ namespace libport
   {
     if (!filled_)
     {
-      aver(def);
+      aver(!!def);
       return def.get();
     }
     return value_;

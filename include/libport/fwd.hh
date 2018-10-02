@@ -11,6 +11,8 @@
 #ifndef LIBPORT_FWD_HH
 # define LIBPORT_FWD_HH
 
+#include <boost/version.hpp>
+
 namespace libport
 {
   // asio.hh;
@@ -63,7 +65,12 @@ namespace boost
 {
   namespace asio
   {
+#if BOOST_VERSION >= 106800
+    class io_context;
+    typedef io_context io_service;
+#else
     class io_service;
+#endif
   }
 }
 

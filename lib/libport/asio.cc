@@ -11,7 +11,7 @@
 // This compilation unit must not have any ssl-dependent code.
 // Said code goes in asio-ssl.cc
 #define LIBPORT_NO_SSL
-
+#define BOOST_ASIO_ENABLE_OLD_SERVICES
 #include <libport/asio.hh>
 #include <libport/debug.hh>
 #include <libport/containers.hh>
