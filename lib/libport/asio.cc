@@ -836,11 +836,8 @@ namespace libport
       Destructible::DestructionLock l = b->getDestructionLock();
       if (b->isConnected())
       {
-        GD_FINFO_TRACE("asyncCall(connection_reset(%p))", this);
-        asyncCall(boost::bind(&connection_reset,
-                              boost::ref(*this), getDestructionLock()),
-                  10,
-                  get_io_service());
+        GD_FINFO_TRACE("boost::asio::io_context::post(connection_reset(%p))", this);
+        get_io_service().post(boost::bind(&connection_reset, boost::ref(*this), getDestructionLock()));
       }
       b->close();
       b->destroy();
