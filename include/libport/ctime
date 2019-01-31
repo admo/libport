@@ -19,18 +19,6 @@
 #  include <libport/windows.hh>
 # endif
 
-/*-----------.
-| timespec.  |
-`-----------*/
-
-# if defined WIN32
-struct timespec
-{
-  time_t tv_sec;
-  long tv_nsec;
-};
-# endif
-
 /*--------------.
 | localtime_r.  |
 `--------------*/
