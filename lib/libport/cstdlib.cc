@@ -124,12 +124,12 @@ namespace libport
 # if defined __APPLE__
     res = env_build(*_NSGetEnviron());
 # elif defined _MSC_VER || defined __MINGW32__
-    char* environ = GetEnvironmentStrings();
-    for (char* cp = environ; *cp; cp += strlen(cp) + 1)
+    char* environVar = GetEnvironmentStrings();
+    for (char* cp = environVar; *cp; cp += strlen(cp) + 1)
       env_add(res, cp);
-    FreeEnvironmentStrings(environ);
+    FreeEnvironmentStrings(environVar);
 # else
-     res = env_build(environ);
+     res = env_build(environVar);
 # endif
     return res;
   }
