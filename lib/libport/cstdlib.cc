@@ -129,7 +129,7 @@ namespace libport
       env_add(res, cp);
     FreeEnvironmentStrings(environVar);
 # else
-     res = env_build(environVar);
+     res = env_build(environ);
 # endif
     return res;
   }
