@@ -26,6 +26,7 @@
 # if defined __GNUC__ && defined __APPLE__
 #  pragma GCC visibility push(default)
 # endif
+# define BOOST_ASIO_ENABLE_OLD_SERVICES
 # include <boost/asio.hpp>
 # if defined LIBPORT_ENABLE_SSL && defined LIBPORT_NO_SSL
 #  undef LIBPORT_ENABLE_SSL
