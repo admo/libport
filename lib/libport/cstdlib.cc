@@ -36,18 +36,6 @@
 #  include <crt_externs.h>
 # endif
 
-#ifdef _MSC_VER
-
-extern "C"
-{
-  long long
-  strtoll(const char* nptr, char** endptr, int base)
-  {
-    return _strtoi64(nptr, endptr, base);
-  }
-}
-#endif
-
 #if defined _MSC_VER || defined __MINGW32__
 
 namespace libport

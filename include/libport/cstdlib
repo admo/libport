@@ -200,18 +200,6 @@ extern "C"
 }
 # endif
 
-/*----------.
-| strtoll.  |
-`----------*/
-
-# if defined _MSC_VER
-extern "C"
-{
-  LIBPORT_API
-  long long strtoll(const char* nptr, char** endptr, int base);
-}
-# endif // WIN32
-
 /*-----------.
 | unsetenv.  |
 `-----------*/
